@@ -26,7 +26,7 @@ letter <tab> replacement
 Usage:
 ```
 python dicepass.py [-h] [-d [N_DICES]] [-dm [DICE_MAX]]
-				   [-w [N_WORDS]] [-l [LEETFILE]] [-lp [LEETPROB]] [-s [SEP]]
+                   [-w [N_WORDS]] [-l [LEETFILE]] [-lp [LEETPROB]] [-s [SEP]]
                    [-q] [-c]
                    [filename]
 
