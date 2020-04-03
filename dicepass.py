@@ -39,6 +39,16 @@ parser.add_argument('-lp', '--leetpercent',
                     type=int,
                     help='Probability of each letter leeting',
                     dest='leetprob')
+parser.add_argument('-u', '--upper',
+                    action='store_true',
+                    dest='upper',
+                    help='Random letters to uppercase. It prevails over leeting')
+parser.add_argument('-up', '--upperpercent',
+                    nargs='?',
+                    default=50,
+                    type=int,
+                    help='Probability of turning letter to uppercase',
+                    dest='upperprob')
 parser.add_argument('-s', '--sep',
                     nargs='?',
                     default=' ',
@@ -69,6 +79,13 @@ if args.leetprob:
     elif args.leetprob < 0:
         args.leetprob = 0
 
+# Correct upperprob
+if args.upperprob:
+    if args.upperprob > 100:
+        args.upperprob = 100
+    elif args.upperprob < 0:
+        args.upperprob = 0
+
 # Correct max dice number
 if args.dice_max:
     if args.dice_max > 9:
@@ -86,6 +103,16 @@ def cryptokey(dices=args.n_dices, dicemax=args.dice_max):
     return result
 
 
+def upperword(word, prob=args.upperprob):
+    result = ''
+    for letter in word:
+        if cryptogen.randint(0, 100) <= prob:
+            result += letter.upper()
+        else:
+            result += letter
+    return result
+
+
 def leetword(word, leet, prob=args.leetprob):
     result = ''
     for letter in word:
@@ -96,12 +123,13 @@ def leetword(word, leet, prob=args.leetprob):
     return result
 
 
-def passphrase(dictionary, words=args.n_words, dices=args.n_dices, dicemax=args.dice_max, leet={}, leetprob=args.leetprob, sep=args.sep):
+def passphrase(dictionary, words=args.n_words, dices=args.n_dices, dicemax=args.dice_max, leet={}, leetprob=args.leetprob, sep=args.sep, upper=args.upper, upperprob=args.upperprob):
     wordlist = [dictionary[cryptokey()] for _ in range(words)]
+    if upper:
+        wordlist = [upperword(x) for x in wordlist]
     if leet:
-        return sep.join([leetword(x, leet) for x in wordlist])
-    else:
-        return sep.join(wordlist)
+        wordlist = [leetword(x, leet) for x in wordlist]
+    return sep.join(wordlist)
 
 
 if __name__ == '__main__':
