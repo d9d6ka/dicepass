@@ -25,9 +25,12 @@ letter <tab> replacement
 
 Usage:
 ```
-python dicepass.py [-h] [-d [N_DICES]] [-dm [DICE_MAX]]
-                   [-w [N_WORDS]] [-l [LEETFILE]] [-lp [LEETPROB]] [-s [SEP]]
-                   [-q] [-c]
+python dicepass.py [-h]
+                   [-d [N_DICES]] [-dm [DICE_MAX]]
+                   [-w [N_WORDS]]
+                   [-l [LEETFILE]] [-lp [LEETPROB]]
+                   [-u] [-up [UPPERPROB]]
+                   [-s [SEP]] [-q] [-c]
                    [filename]
 
 positional arguments:
@@ -45,6 +48,9 @@ optional arguments:
                         Leet rules file
   -lp [LEETPROB], --leetpercent [LEETPROB]
                         Probability of each letter leeting
+  -u, --upper           Random letters to uppercase. It prevails over leeting
+  -up [UPPERPROB], --upperpercent [UPPERPROB]
+                        Probability of turning letter to uppercase
   -s [SEP], --sep [SEP]
                         Words separator
   -q, --quiet           Suppress verbose
