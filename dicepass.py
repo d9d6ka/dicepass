@@ -42,7 +42,7 @@ parser.add_argument('-lp', '--leetpercent',
 parser.add_argument('-u', '--upper',
                     action='store_true',
                     dest='upper',
-                    help='Random letters to uppercase. It prevails over leeting')
+                    help='Random letters to uppercase')
 parser.add_argument('-up', '--upperpercent',
                     nargs='?',
                     default=50,
@@ -116,8 +116,8 @@ def upperword(word, prob=args.upperprob):
 def leetword(word, leet, prob=args.leetprob):
     result = ''
     for letter in word:
-        if (letter in leet) and (cryptogen.randint(0, 100) <= prob):
-            result += cryptogen.choice(leet[letter])
+        if (letter.lower() in leet) and (cryptogen.randint(0, 100) <= prob):
+            result += cryptogen.choice(leet[letter.lower()])
         else:
             result += letter
     return result

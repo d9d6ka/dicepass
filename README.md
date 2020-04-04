@@ -39,20 +39,20 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -d [N_DICES], --dices [N_DICES]
-                        Number of dices
+                        Number of dices. Default is 5
   -dm [DICE_MAX], --dicemax [DICE_MAX]
-                        Max number on dice
+                        Max number on dice. Default is 6
   -w [N_WORDS], --words [N_WORDS]
-                        Number of words
+                        Number of words. Default is 5
   -l [LEETFILE], --leet [LEETFILE]
-                        Leet rules file
+                        Leet rules file. Default is ''
   -lp [LEETPROB], --leetpercent [LEETPROB]
-                        Probability of each letter leeting
-  -u, --upper           Random letters to uppercase. It prevails over leeting
+                        Probability of each letter leeting. Default is 50
+  -u, --upper           Random letters to uppercase.
   -up [UPPERPROB], --upperpercent [UPPERPROB]
-                        Probability of turning letter to uppercase
+                        Probability of turning letter to uppercase. Default of 50
   -s [SEP], --sep [SEP]
-                        Words separator
+                        Words separator. Default is ' '
   -q, --quiet           Suppress verbose
   -c, --clip            Copy to clipboard
 ```
