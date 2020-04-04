@@ -59,18 +59,19 @@ parser.add_argument('-q', '--quiet',
                     action='store_true',
                     dest='quiet',
                     help='Suppress verbose')
-parser.add_argument('-c', '--clip',
-                    action='store_true',
-                    dest='clip',
-                    help='Copy to clipboard')
+# Import pyperclip
+try:
+    import pyperclip
+    parser.add_argument('-c', '--clip',
+                        action='store_true',
+                        dest='clip',
+                        help='Copy to clipboard')
+except:
+    pass
 args = parser.parse_args()
 
 # System cryptogenerator
 cryptogen = SystemRandom()
-
-# Import pyperclip
-if args.clip:
-    import pyperclip
 
 # Correct leetprob
 if args.leetprob:
@@ -153,5 +154,8 @@ if __name__ == '__main__':
     result = passphrase(wordlist, leet=leetdict)
     if not args.quiet:
         print(result)
-    if args.clip:
-        pyperclip.copy(result)
+    try:
+        if args.clip:
+            pyperclip.copy(result)
+    except:
+        pass

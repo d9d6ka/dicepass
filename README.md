@@ -1,6 +1,6 @@
 # dicepass
 
-Easy python script for generating dice passphrases. In work at the moment.
+Easy python script for generating dice passphrases. Finished as far as it does what I've expected from it.
 
 It was written just to feed my paranoia and to practice in Python scripting :)
 
@@ -8,7 +8,7 @@ You should use [passphraseme](https://github.com/micahflee/passphraseme) by @mic
 
 ## Dependencies
 
-[pyperclip](https://pypi.org/project/pyperclip/)
+Based on Python standard modules. Whether you want autocopy to clipboard work, install [pyperclip](https://pypi.org/project/pyperclip/).
 
 ## Usage
 
@@ -63,4 +63,4 @@ Get it on the [EFF page](https://www.eff.org/ru/deeplinks/2016/07/new-wordlists-
 
 ## Leet rules
 
-Based on [The Slangit Leet Sheet](https://slangit.com/leet_sheet) 
+Based on [The Slangit Leet Sheet](https://slangit.com/leet_sheet).
